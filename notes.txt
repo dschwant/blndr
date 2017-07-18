@@ -1,0 +1,12 @@
+http://support.ponoko.com/hc/en-us/articles/220291008-How-to-export-a-STL-design-file-using-Blender-2-6-
+
+https://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Python_Scripting/Addon_User_Interface
+https://www.youtube.com/watch?v=OEkrQGFqM10 - Blender Addons with Python Tutorial
+https://wiki.blender.org/index.php/Dev:Py/Scripts/Cookbook/Code_snippets/Interface
+
+
+import os
+os.system("cls")
+
+
+

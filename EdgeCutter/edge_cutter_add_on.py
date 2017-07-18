@@ -25,7 +25,7 @@ class ToolsPanel(bpy.types.Panel):
         scene = context.scene
 
         col = layout.column(align=True)
-        col.prop_search(scene, "Cutter", scene, "objects")
+        col.prop_search(scene, "Cutter", bpy.data, "meshes")
         col.operator("cutter.cut", text="Do Cuts")
 
 class OBJECT_CutButton(bpy.types.Operator):
