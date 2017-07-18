@@ -1,0 +1,7 @@
+The Tetrahedron Bring up the Add Mesh menu Shift-A, and select a Cone. 
+Set the number of Vertices to 3, leave Radius 1 at its default value of 1.000 and Radius 2 at 0.000. 
+Now, set the Depth to sqrt(2) ~ 1.414. 
+To make sure that you have a regular tetrahedron, you can check the lengths of the edges 
+	- In Edit Mode, press N to open the Properties panel and locate the checkbox Length in the section Edge Info
+
+8 mm = 5/16 in
