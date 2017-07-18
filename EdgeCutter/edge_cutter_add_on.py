@@ -17,8 +17,14 @@ class ToolsPanel(bpy.types.Panel):
     bl_space_type = "VIEW_3D"
     bl_region_type = "TOOLS"
     bl_category = "Cutter"
+    bl_context = "objectmode"
+
     def draw(self, context):
-        self.layout.operator("cutter.cut")
+        layout = self.layout
+        scene = context.scene
+
+        #layout.prop_search(scene, "theCutter", scene, "objects")
+        layout.operator("cutter.cut", text="Do Cuts")
 
 class OBJECT_CutButton(bpy.types.Operator):
     bl_idname = "cutter.cut"
