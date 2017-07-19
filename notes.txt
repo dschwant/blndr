@@ -9,6 +9,5 @@ https://wiki.blender.org/index.php/Dev:Py/Scripts/Cookbook/Code_snippets/Interfa
 import os
 os.system("cls")
 
-
 https://blenderartists.org/forum/showthread.php?201093-Icon-Enumeration-Script-(Blender-2-5)
 

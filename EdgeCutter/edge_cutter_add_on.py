@@ -1,3 +1,11 @@
+######################################################
+# Still to do:
+# - internal document
+# - fix starting_? to current location
+# - make rotation axis choice work
+# 
+######################################################
+
 bl_info = {
 	"name": "Edge_Rotate_Cutter",
 	"author": "DS",
@@ -6,14 +14,12 @@ bl_info = {
 	"location": "View3D > Tool Shelf > ERCutter",
 	"warning": "",
 	"category": "Object"}
-
+	
 import bpy
 import math
 from bpy.types import Scene
 from bpy.props import EnumProperty, IntProperty
 from math import radians
-# from mathutils import Vector
-# from functools import reduce
 
 class ToolsPanel(bpy.types.Panel):
 	bl_label = "Edge Rotate Cutter"
@@ -34,8 +40,8 @@ class ToolsPanel(bpy.types.Panel):
 		row = box.row()
 		row.prop_search(scene, "Cutter", bpy.data, "objects",icon="TRIA_DOWN")
 		row = box.row()
-		row.prop(scene, "RotAxis", text="Rotation Axis")
-		row = box.row()
+		# row.prop(scene, "RotAxis", text="Rotation Axis")
+		# row = box.row()
 		row.prop(scene, "NumSteps", text="Num. Steps")
 		row = box.row()
 		row.prop(scene, "LimSteps", text="Stop at Step")
@@ -47,11 +53,14 @@ class OBJECT_CutButton(bpy.types.Operator):
 	bl_idname = "cutter.cut"
 	bl_label = "Make Cuts"
 	country = bpy.props.StringProperty()
+
+
 	
 	def execute(self, context):
 		vars = context.scene
 		coin = bpy.data.objects[vars.Target]
 		cutter = bpy.data.objects[vars.Cutter]
+		strt_Euler = coin.rotation_euler
 		starting_Z = 0
 		stepRads = radians(360 / vars.NumSteps)
 
@@ -72,7 +81,8 @@ class OBJECT_CutButton(bpy.types.Operator):
 		if self.country == '':
 			print(context.scene.Target)
 			print(context.scene.Cutter)
-			print(context.scene.RotAxis)
+			# print(context.scene.RotAxis)
+			print(strt_Euler)
 			print(context.scene.NumSteps)
 			print(context.scene.LimSteps)
 			print("Make Cuts")
