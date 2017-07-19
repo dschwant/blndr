@@ -1,8 +1,9 @@
 ######################################################
 # Still to do:
-# - internal document
-# - fix starting_? to current location
-# - make rotation axis choice work
+# - internal documentation
+# - make rotation axis choice work (currently fixed to Z)
+# - ? assumes orgin is in right place
+# - ? force LimSteps to always be >= NumSteps
 # 
 ######################################################
 
@@ -60,7 +61,7 @@ class OBJECT_CutButton(bpy.types.Operator):
 		cutter = bpy.data.objects[vars.Cutter]
 		get_Euler = coin.rotation_euler
 		print(get_Euler)
-		starting_Z = 0
+		starting_Z = get_Euler[2]
 		stepRads = radians(360 / vars.NumSteps)
 
 		for i in range(0, vars.LimSteps):
