@@ -1,10 +1,9 @@
 ######################################################
 # Still to do:
 # - internal documentation
-# - make rotation axis choice work (currently fixed to Z)
 # - ? assumes orgin is in right place
 # - ? force LimSteps to always be >= NumSteps
-# 
+# - 
 ######################################################
 
 bl_info = {
@@ -41,8 +40,8 @@ class ToolsPanel(bpy.types.Panel):
 		row = box.row()
 		row.prop_search(scene, "Cutter", bpy.data, "objects",icon="TRIA_DOWN")
 		row = box.row()
-		# row.prop(scene, "RotAxis", text="Rotation Axis")
-		# row = box.row()
+		row.prop(scene, "RotAxis", text="Rotation Axis")
+		row = box.row()
 		row.prop(scene, "NumSteps", text="Num. Steps")
 		row = box.row()
 		row.prop(scene, "LimSteps", text="Stop at Step")
@@ -61,11 +60,13 @@ class OBJECT_CutButton(bpy.types.Operator):
 		cutter = bpy.data.objects[vars.Cutter]
 		get_Euler = coin.rotation_euler
 		print(get_Euler)
-		starting_Z = get_Euler[2]
+		rot_loc_X = get_Euler[0]
+		rot_loc_Y = get_Euler[1]
+		rot_loc_Z = get_Euler[2]
 		stepRads = radians(360 / vars.NumSteps)
 
 		for i in range(0, vars.LimSteps):
-			coin.rotation_euler = (0,0,starting_Z)
+			coin.rotation_euler = (rot_loc_X,rot_loc_Y,rot_loc_Z)
 			bpy.ops.object.select_all(action='DESELECT')
 			coin.select = True
 			bpy.context.scene.objects.active = coin
@@ -75,13 +76,18 @@ class OBJECT_CutButton(bpy.types.Operator):
 			mod[0].operation = 'DIFFERENCE'
 			mod[0].object = cutter
 			bpy.ops.object.modifier_apply(apply_as='DATA', modifier=mod[0].name)
-			starting_Z=starting_Z + stepRads
+			if vars.RotAxis == 'X':
+				rot_loc_X=rot_loc_X + stepRads
+			elif vars.RotAxis == 'Y':
+				rot_loc_Y=rot_loc_Y + stepRads
+			else: # Assumes 'Z'
+				rot_loc_Z=rot_loc_Z + stepRads
 			i += 1
 		
 		if self.country == '':
 			print(context.scene.Target)
 			print(context.scene.Cutter)
-			# print(context.scene.RotAxis)
+			print(context.scene.RotAxis)
 			print(get_Euler)
 			print(context.scene.NumSteps)
 			print(context.scene.LimSteps)
@@ -95,11 +101,12 @@ def register():
 	bpy.utils.register_class(OBJECT_CutButton)
 	Scene.Target = bpy.props.StringProperty()
 	Scene.Cutter = bpy.props.StringProperty()
-	Scene.RotAxis = EnumProperty(items=(('1', "X", "Rotate on X axis"),
-                                          ('2', "Y", "Rotate on Y axis"),
-                                          ('3', "Z", "Rotate on Z axis")),
-                                   name="Rotation Axis",
-                                   description="Axis on which to rotate Target for cuts.")
+	Scene.RotAxis = EnumProperty(items=(('Z', "Z", "Rotate on Z axis"),
+						('Y', "Y", "Rotate on Y axis"),
+						('X', "X", "Rotate on X axis")),						
+					name="Rotation Axis",
+					default = 'Z',
+					description="Axis on which to rotate Target for cuts.")
 	Scene.NumSteps = IntProperty(name='Number of Steps', min=2, max=360, description="Number steps to devide full 360deg rotation into.")
 	Scene.LimSteps = IntProperty(name='Limit number of Steps', min=2, max=360, description="Number steps to stop at.")
 
