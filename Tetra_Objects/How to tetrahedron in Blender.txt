@@ -10,3 +10,6 @@ To make sure that you have a regular tetrahedron, you can check the lengths of t
 	- In Edit Mode, press N to open the Properties panel and locate the checkbox Length in the section Edge Info
 
 8 mm = 5/16 in
+
+
+

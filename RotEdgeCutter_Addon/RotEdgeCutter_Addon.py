@@ -119,6 +119,8 @@ def unregister():
 	del bpy.types.Object.Target
 	del bpy.types.Object.Cutter
 	del bpy.types.Object.RotAxis
+	del bpy.types.Object.NumSteps
+	del bpy.types.Object.LimSteps
 
 if __name__ == "__main__":
 	register()
