@@ -53,14 +53,13 @@ class OBJECT_CutButton(bpy.types.Operator):
 	bl_idname = "cutter.cut"
 	bl_label = "Make Cuts"
 	country = bpy.props.StringProperty()
-
-
 	
 	def execute(self, context):
 		vars = context.scene
 		coin = bpy.data.objects[vars.Target]
 		cutter = bpy.data.objects[vars.Cutter]
-		strt_Euler = coin.rotation_euler
+		get_Euler = coin.rotation_euler
+		print(get_Euler)
 		starting_Z = 0
 		stepRads = radians(360 / vars.NumSteps)
 
@@ -82,7 +81,7 @@ class OBJECT_CutButton(bpy.types.Operator):
 			print(context.scene.Target)
 			print(context.scene.Cutter)
 			# print(context.scene.RotAxis)
-			print(strt_Euler)
+			print(get_Euler)
 			print(context.scene.NumSteps)
 			print(context.scene.LimSteps)
 			print("Make Cuts")
