@@ -1,3 +1,8 @@
+Tetrahedron:
+https://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Platonic_Solids
+https://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Python_Scripting/Addon_User_Interface
+
+
 The Tetrahedron Bring up the Add Mesh menu Shift-A, and select a Cone. 
 Set the number of Vertices to 3, leave Radius 1 at its default value of 1.000 and Radius 2 at 0.000. 
 Now, set the Depth to sqrt(2) ~ 1.414. 
