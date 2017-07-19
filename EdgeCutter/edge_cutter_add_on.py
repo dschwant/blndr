@@ -11,8 +11,9 @@ import bpy
 import math
 from bpy.types import Scene
 from bpy.props import EnumProperty, IntProperty
-from mathutils import Vector
-from functools import reduce
+from math import radians
+# from mathutils import Vector
+# from functools import reduce
 
 class ToolsPanel(bpy.types.Panel):
 	bl_label = "Edge Rotate Cutter"
@@ -29,9 +30,9 @@ class ToolsPanel(bpy.types.Panel):
 		box.label("Set Values:")
 		row = box.row()
 		
-		row.prop_search(scene, "Target", bpy.data, "meshes",icon="TRIA_DOWN")
+		row.prop_search(scene, "Target", bpy.data, "objects",icon="TRIA_DOWN")
 		row = box.row()
-		row.prop_search(scene, "Cutter", bpy.data, "meshes",icon="TRIA_DOWN")
+		row.prop_search(scene, "Cutter", bpy.data, "objects",icon="TRIA_DOWN")
 		row = box.row()
 		row.prop(scene, "RotAxis", text="Rotation Axis")
 		row = box.row()
@@ -48,10 +49,32 @@ class OBJECT_CutButton(bpy.types.Operator):
 	country = bpy.props.StringProperty()
 	
 	def execute(self, context):
+		vars = context.scene
+		coin = bpy.data.objects[vars.Target]
+		cutter = bpy.data.objects[vars.Cutter]
+		starting_Z = 0
+		stepRads = radians(360 / vars.NumSteps)
+
+		for i in range(0, vars.LimSteps):
+			coin.rotation_euler = (0,0,starting_Z)
+			bpy.ops.object.select_all(action='DESELECT')
+			coin.select = True
+			bpy.context.scene.objects.active = coin
+			bpy.ops.object.modifier_add(type='BOOLEAN')
+			mod = coin.modifiers
+			mod[0].name = "CutEdge"
+			mod[0].operation = 'DIFFERENCE'
+			mod[0].object = cutter
+			bpy.ops.object.modifier_apply(apply_as='DATA', modifier=mod[0].name)
+			starting_Z=starting_Z + stepRads
+			i += 1
+		
 		if self.country == '':
 			print(context.scene.Target)
 			print(context.scene.Cutter)
 			print(context.scene.RotAxis)
+			print(context.scene.NumSteps)
+			print(context.scene.LimSteps)
 			print("Make Cuts")
 		else:
 			print("Don't Make Cuts from %s!" % self.country)
