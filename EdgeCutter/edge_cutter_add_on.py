@@ -1,6 +1,7 @@
 ######################################################
 # Still to do:
 # - internal documentation
+# - ? take out debug prints to console
 # - ? assumes orgin is in right place
 # - ? force LimSteps to always be >= NumSteps
 # - 
