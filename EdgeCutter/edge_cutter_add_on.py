@@ -47,9 +47,10 @@ class ToolsPanel(bpy.types.Panel):
 		row.prop(scene, "LimSteps", text="Stop at Step")
 		box = layout.box()
 		row = box.row(False)
-		row.operator("cutter.cut", text="Do Cuts")	
+		row.operator("cutter.cut", text="Do Cuts")
+# End class ToolsPanel
 	
-class OBJECT_CutButton(bpy.types.Operator):
+class CutButton(bpy.types.Operator):
 	bl_idname = "cutter.cut"
 	bl_label = "Make Cuts"
 	country = bpy.props.StringProperty()
@@ -95,10 +96,11 @@ class OBJECT_CutButton(bpy.types.Operator):
 		else:
 			print("Don't Make Cuts from %s!" % self.country)
 		return {"FINISHED"}
+# End class ToolsPanel
 
 def register():
 	bpy.utils.register_class(ToolsPanel)
-	bpy.utils.register_class(OBJECT_CutButton)
+	bpy.utils.register_class(CutButton)
 	Scene.Target = bpy.props.StringProperty()
 	Scene.Cutter = bpy.props.StringProperty()
 	Scene.RotAxis = EnumProperty(items=(('Z', "Z", "Rotate on Z axis"),
@@ -112,7 +114,7 @@ def register():
 
 def unregister():
 	bpy.utils.unregister_class(ToolsPanel)
-	bpy.utils.unregister_class(OBJECT_CutButton)
+	bpy.utils.unregister_class(CutButton)
 	del bpy.types.Object.Target
 	del bpy.types.Object.Cutter
 	del bpy.types.Object.RotAxis

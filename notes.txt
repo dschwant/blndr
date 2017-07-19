@@ -11,3 +11,10 @@ os.system("cls")
 
 https://blenderartists.org/forum/showthread.php?201093-Icon-Enumeration-Script-(Blender-2-5)
 
+Tetrahedron:
+https://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Platonic_Solids
+https://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Python_Scripting/Addon_User_Interface
+
+
+Save versions to other dir:
+https://blender.stackexchange.com/questions/6940/config-blender-to-save-backup-files-in-subfolder
