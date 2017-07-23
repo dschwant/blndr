@@ -15,6 +15,8 @@ Tetrahedron:
 https://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Platonic_Solids
 https://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Python_Scripting/Addon_User_Interface
 
+https://rechneronline.de/pi/tetrahedron.php
+http://www.mathalino.com/reviewer/solid-mensuration-solid-geometry/regular-tetrahedron
 
 Save versions to other dir:
 https://blender.stackexchange.com/questions/6940/config-blender-to-save-backup-files-in-subfolder
