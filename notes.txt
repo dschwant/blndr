@@ -17,6 +17,9 @@ https://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Python_
 
 https://rechneronline.de/pi/tetrahedron.php
 http://www.mathalino.com/reviewer/solid-mensuration-solid-geometry/regular-tetrahedron
+http://mathcountsnotes.blogspot.com/2017/01/2014-mathcounts-state-prep-volume-of.html
+
+edge of cube = a/sqrt(2)
 
 Save versions to other dir:
 https://blender.stackexchange.com/questions/6940/config-blender-to-save-backup-files-in-subfolder
