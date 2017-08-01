@@ -9,3 +9,16 @@ https://www.youtube.com/watch?v=mhQY2_gVoVg - armiture
 https://www.youtube.com/watch?v=oLRpnS2HvTs - dog animate -> pointer to blend file
 
 https://www.youtube.com/watch?v=W4TkA5P5Qes - robot dog animation
+
+ecru	
+243	0.9529411765
+239	0.937254902
+224	0.8784313725
+brown	
+139	0.5450980392
+69	0.2705882353
+19	0.07450980392
+tan	
+210	0.8235294118
+180	0.7058823529
+140	0.5490196078
