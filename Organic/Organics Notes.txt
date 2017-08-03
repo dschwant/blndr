@@ -10,6 +10,15 @@ https://www.youtube.com/watch?v=oLRpnS2HvTs - dog animate -> pointer to blend fi
 
 https://www.youtube.com/watch?v=W4TkA5P5Qes - robot dog animation
 
+https://youtu.be/e9Fv5nyc0Ak  -quadped walk cycle
+
+Physics and rendering:
+https://youtu.be/4gYsxqNJyu8 - soft body physics and link to shaders
+
+
+lkjh%*&765fFHJ
+
+
 ecru	
 243	0.9529411765
 239	0.937254902
