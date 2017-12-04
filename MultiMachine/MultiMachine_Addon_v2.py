@@ -3,7 +3,6 @@
 # - internal documentation
 # - Take out debug prints to console
 # - Add repeater
-# - video demo
 ######################################################
 
 bl_info = {
