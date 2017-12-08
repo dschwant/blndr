@@ -94,12 +94,13 @@ class mmtoolButton(bpy.types.Operator):
 
 #		print(context.scene.Target)
 #		print(context.scene.Tool)
-		print(orig_eul,orig_loc)
-		print(rot_eul,slide_loc)
-		print(toolRotRads,toolSlideUnits)
-		print(prestepRotRads,prestepSlideUnits)
+		print('orig: ',orig_eul,orig_loc)
+		print('rot and slide: ',rot_eul,slide_loc)
+		print('tool: ',toolRotRads,toolSlideUnits)
+		print('pre: ',prestepRotRads,prestepSlideUnits)
 		
-		for r in range(0, vars.RepeaterCnt):
+		for r in range(vars.RepeaterCnt):
+			print ('rep_cnt: ',r)
 			if (vars.MMPreStep =='Rotate'):
 				rot_eul = Euler([sum(z) for z in zip(rot_eul, prestepRotRads)], "XYZ")
 				target.rotation_euler = rot_eul
@@ -107,11 +108,10 @@ class mmtoolButton(bpy.types.Operator):
 				slide_loc = Vector([sum(z) for z in zip(slide_loc, prestepSlideUnits)])
 				target.location = slide_loc
 			
-			print(rot_eul)
-			print(slide_loc)
+			print('rot slide: ',rot_eul,slide_loc)
 			
-			for i in range(0, vars.NumSteps+1):
-				print(i)
+			for i in range(vars.NumSteps+1):
+				print('step: ',i)
 				# At step 0 these are the original euler\location (or location after pre-step),
 				#   else the location set at end of previous "i" iteration step
 				target.rotation_euler = rot_eul 
@@ -125,9 +125,11 @@ class mmtoolButton(bpy.types.Operator):
 					mod = target.modifiers
 					mod[0].name = "MMTool"
 					if (vars.MMAction == 'Diff'):
-						 mod[0].operation = 'DIFFERENCE'
+						print('diff: ',rot_eul, slide_loc)
+						mod[0].operation = 'DIFFERENCE'
 					else: # Assumes 'Union'
-						 mod[0].operation = 'UNION'
+						print('union: ',rot_eul, slide_loc)
+						mod[0].operation = 'UNION'
 					mod[0].object = tool
 					bpy.ops.object.modifier_apply(apply_as='DATA', modifier=mod[0].name)
 					
