@@ -21,6 +21,7 @@ from bpy.types import Scene
 from bpy.props import EnumProperty, IntProperty, FloatProperty
 from math import radians
 from mathutils import Vector, Euler
+import os
 
 class ToolsPanel(bpy.types.Panel):
 	bl_label = "Multi Machine"
@@ -78,6 +79,7 @@ class mmtoolButton(bpy.types.Operator):
 	country = bpy.props.StringProperty()
 	
 	def execute(self, context):
+		os.system("cls")
 		vars = context.scene
 		target = bpy.data.objects[vars.Target]
 		tool = bpy.data.objects[vars.Tool]
@@ -112,8 +114,13 @@ class mmtoolButton(bpy.types.Operator):
 			
 			for i in range(vars.NumSteps+1):
 				print('step: ',i)
-				# At step 0 these are the original euler\location (or location after pre-step),
-				#   else the location set at end of previous "i" iteration step
+				if (i > 0 ):
+					if (vars.MMMove == 'Rotate'):
+						rot_eul = Euler([sum(z) for z in zip(rot_eul, toolRotRads)], "XYZ")
+					else: # Assumes 'Slide'
+						slide_loc = Vector([sum(z) for z in zip(slide_loc, toolSlideUnits)])
+
+				# At step 0 these are the original euler\location (or location after pre-step), else the eul\loc just set
 				target.rotation_euler = rot_eul 
 				target.location = slide_loc
 				bpy.ops.object.select_all(action='DESELECT')
@@ -133,10 +140,6 @@ class mmtoolButton(bpy.types.Operator):
 					mod[0].object = tool
 					bpy.ops.object.modifier_apply(apply_as='DATA', modifier=mod[0].name)
 					
-				if (vars.MMMove == 'Rotate'):
-					rot_eul = Euler([sum(z) for z in zip(rot_eul, toolRotRads)], "XYZ")
-				else: # Assumes 'Slide'
-					slide_loc = Vector([sum(z) for z in zip(slide_loc, toolSlideUnits)])
 				i += 1
 			r += 1
 			
