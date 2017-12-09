@@ -99,7 +99,7 @@ class mmtoolButton(bpy.types.Operator):
 
 #		print(context.scene.Target)
 #		print(context.scene.Tool)
-		print('orig: ',orig_eul,orig_loc)
+		print('orig: ',orig_Euler,orig_Location)
 		print('rot and slide: ',rot_eul,slide_loc)
 		print('tool: ',toolRotRads,toolSlideUnits)
 		print('pre: ',prestepRotRads,prestepSlideUnits)
