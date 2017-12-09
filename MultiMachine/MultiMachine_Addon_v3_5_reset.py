@@ -2,7 +2,6 @@
 # Still to do:
 # - internal documentation
 # - video and samples
-# - Add Reset
 ######################################################
 
 bl_info = {
@@ -167,6 +166,18 @@ class mmtoolReset(bpy.types.Operator):
 		resetVars = context.scene
 		resetVars.Target = ""
 		resetVars.Tool = ""
+		resetVars.MMAction = "None"
+		resetVars.MMPreStep = "None"
+		resetVars.MMToolXVal = 0
+		resetVars.MMToolYVal = 0
+		resetVars.MMToolZVal = 0
+		resetVars.NumSteps = 0
+		resetVars.StartSteps = 0
+		resetVars.MMPreStepXVal = 0
+		resetVars.MMPreStepYVal = 0
+		resetVars.MMPreStepZVal = 0
+		resetVars.RepeaterCnt = 0
+		resetVars.ReturnToLoc = True
 			
 		if self.bpSPRS == '':
 			print('Done')
