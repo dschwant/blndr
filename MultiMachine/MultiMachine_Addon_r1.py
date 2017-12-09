@@ -32,7 +32,6 @@ class ToolsPanel(bpy.types.Panel):
 	def draw(self, context):
 		layout = self.layout
 		scene = context.scene
-
 		box = layout.box()
 		row = box.row()
 		row.prop_search(scene, "Target", bpy.data, "objects",icon="TRIA_DOWN")
@@ -52,7 +51,6 @@ class ToolsPanel(bpy.types.Panel):
 		row.prop(scene, "NumSteps", text="Num. Steps")
 		row = box.row()
 		row.prop(scene, "StartSteps", text="Start at Step")
-
 		box = layout.box()
 		row = box.row()
 		row.prop(scene, "MMPreStep", text="Pre-Move")
@@ -63,7 +61,6 @@ class ToolsPanel(bpy.types.Panel):
 		row = box.row()
 		row.prop(scene, "MMPreStepZVal", text="Z")
 		row = box.row()
-
 		box = layout.box() 
 		row = box.row()
 		row.prop(scene, "RepeaterCnt", text="Repeat")
