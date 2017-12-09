@@ -18,7 +18,7 @@ bl_info = {
 import bpy
 import math
 from bpy.types import Scene
-from bpy.props import EnumProperty, IntProperty, FloatProperty
+from bpy.props import EnumProperty, IntProperty, FloatProperty, BoolProperty
 from math import radians
 from mathutils import Vector, Euler
 import os
@@ -70,6 +70,8 @@ class ToolsPanel(bpy.types.Panel):
 		row = box.row()
 		row.prop(scene, "RepeaterCnt", text="Repeat")
 		row = box.row()
+		row.prop(scene, "ReturnToLoc", text="Return to origin")
+		row = box.row()
 		row.operator("tool.exec", text="Execute")
 # End class ToolsPanel
 	
@@ -83,12 +85,13 @@ class mmtoolButton(bpy.types.Operator):
 		vars = context.scene
 		target = bpy.data.objects[vars.Target]
 		tool = bpy.data.objects[vars.Tool]
-		get_Euler = target.rotation_euler
-		get_Location = target.location
-		print(get_Euler)
-		print(get_Location)
-		orig_eul = rot_eul = [get_Euler[0],get_Euler[1],get_Euler[2]]
-		orig_loc = slide_loc = [get_Location[0],get_Location[1],get_Location[2]]
+		orig_Euler = target.rotation_euler
+		orig_Location = target.location
+		#print('RTL: ', ReturnToLoc)
+		print(orig_Euler)
+		print(orig_Location)
+		rot_eul = [orig_Euler[0],orig_Euler[1],orig_Euler[2]]
+		slide_loc = [orig_Location[0],orig_Location[1],orig_Location[2]]
 		toolRotRads = [radians(vars.MMToolXVal),radians(vars.MMToolYVal),radians(vars.MMToolZVal)]
 		toolSlideUnits = [vars.MMToolXVal,vars.MMToolYVal,vars.MMToolZVal]
 		prestepRotRads = [radians(vars.MMPreStepXVal),radians(vars.MMPreStepYVal),radians(vars.MMPreStepZVal)]
@@ -104,10 +107,10 @@ class mmtoolButton(bpy.types.Operator):
 		for r in range(vars.RepeaterCnt):
 			print ('rep_cnt: ',r)
 			if (vars.MMPreStep =='Rotate'):
-				rot_eul = Euler([sum(z) for z in zip(rot_eul, prestepRotRads)], "XYZ")
+				rot_eul = Euler([sum(e) for e in zip(rot_eul, prestepRotRads)], "XYZ")
 				target.rotation_euler = rot_eul
 			elif (vars.MMPreStep =='Slide'):
-				slide_loc = Vector([sum(z) for z in zip(slide_loc, prestepSlideUnits)])
+				slide_loc = Vector([sum(v) for v in zip(slide_loc, prestepSlideUnits)])
 				target.location = slide_loc
 			
 			print('rot slide: ',rot_eul,slide_loc)
@@ -137,8 +140,9 @@ class mmtoolButton(bpy.types.Operator):
 					else: # Assumes 'Union'
 						print('union: ',rot_eul, slide_loc)
 						mod[0].operation = 'UNION'
-					mod[0].object = tool
-					bpy.ops.object.modifier_apply(apply_as='DATA', modifier=mod[0].name)
+					if (vars.MMAction != 'None'):
+						mod[0].object = tool
+						bpy.ops.object.modifier_apply(apply_as='DATA', modifier=mod[0].name)
 					
 				i += 1
 			r += 1
@@ -148,6 +152,9 @@ class mmtoolButton(bpy.types.Operator):
 		else:
 			print("Don't Make Cuts from %s!" % self.country)
 		return {"FINISHED"}
+#	if vars.ReturnToLoc:
+#		target.rotation_euler = orig_Euler
+#		target.location = orig_Location
 # End class ToolsPanel
 
 def register():
@@ -155,7 +162,8 @@ def register():
 	bpy.utils.register_class(mmtoolButton)
 	Scene.Target = bpy.props.StringProperty()
 	Scene.Tool = bpy.props.StringProperty()
-	Scene.MMAction = EnumProperty(items=(('Diff', "Diff", "Do Boolean Difference"),
+	Scene.MMAction = EnumProperty(items=(('None', "None", "No tooling"),
+						('Diff', "Diff", "Do Boolean Difference"),
 						('Union', "Union", "Do Boolean Union")),						
 					name="Should the tool boolean diff or boolean union?",
 					default = 'Diff',
@@ -170,7 +178,6 @@ def register():
 	Scene.MMToolZVal = FloatProperty(name='MMToolZVal', default = 0, min=-100000, max=100000, precision=5, description="Number of degrees or units to move target on Z axis.")
 	Scene.NumSteps = IntProperty(name='Number of Steps', min=1, max=10000, description="Number tooling steps to take.")
 	Scene.StartSteps = IntProperty(name='Step to start tooling', min=0, max=10000, description="The step at which to start tooling (current location is zero).")
-
 	Scene.MMPreStep = EnumProperty(items=(('None', "None", "No Pre-step"),
 						('Slide', "Slide", "Slide the target on the axis"),
 						('Rotate', "Rotate", "Rotate the target on the axis")),
@@ -180,7 +187,7 @@ def register():
 	Scene.MMPreStepXVal = FloatProperty(name='MMPreStepXVal', default = 0, min=-100000, max=100000, precision=5, description="Number of degrees or units to move target on X axis in pre-step.")
 	Scene.MMPreStepYVal = FloatProperty(name='MMPreStepYVal', default = 0, min=-100000, max=100000, precision=5, description="Number of degrees or units to move target on Y axis in pre-step..")
 	Scene.MMPreStepZVal = FloatProperty(name='MMPreStepZVal', default = 0, min=-100000, max=100000, precision=5, description="Number of degrees or units to move target on Z axis in pre-step..")
-
+	Scene.ReturnToLoc = BoolProperty(name='ReturnToLoc', description="Should the target be returned to the original location and rotation?", default = False)
 	Scene.RepeaterCnt = IntProperty(name='RepeaterCnt', min=1, max=1000, description="Number of times to repeat the pre-step and tooling sequence.", default = 1)
 
 def unregister():
