@@ -18,10 +18,10 @@
 #
 
 bl_info = {
-    "name": "Multi_Machine_v3",
-    "author": "DS",
+    "name": "Multi_Machine",
+    "author": "DSchwant",
     "version": (0,0,1),
-    "description": "Res.Does boolean differences or unions on an target using an object (tool) in a parameter driven pattern (rotate or slide).",
+    "description": "Does boolean differences or unions on an target using an object (tool) in a parameter driven pattern (rotate or slide).",
     "location": "View3D > Tool Shelf > MultiMachine",
     "warning": "",
     "category": "Object"}
@@ -32,14 +32,13 @@ import bpy
 from bpy import *
 from bpy.props import *
 from bpy.types import WindowManager
-
-import math
 from bpy.types import Scene
 from bpy.props import EnumProperty, IntProperty, FloatProperty, BoolProperty
+
+import math
 from math import radians
 from mathutils import Vector, Euler
 import os
-
 
 # PANEL #
 class ToolsPanel(bpy.types.Panel):
@@ -47,7 +46,7 @@ class ToolsPanel(bpy.types.Panel):
     bl_idname = "VIEW_3D_TOOLS_Multi_Machine_v3"
     bl_space_type = "VIEW_3D"
     bl_region_type = "TOOLS"
-    bl_category = "MM3"
+    bl_category = "MM"
     bl_context = "objectmode"
 
     def draw(self, context):
