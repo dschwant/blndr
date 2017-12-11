@@ -56,7 +56,6 @@ class MakeTetrahedron(bpy.types.Operator):
             depthVal = vars.sideLen / 3 * sqrt(6)
             objName = "tetra_"
         bpy.ops.mesh.primitive_cone_add(vertices=3, radius1=rad1Val, radius2=0, depth=depthVal)
-        ob = bpy.context.active_object
         bpy.context.active_object.name = objName+str(vars.sideLen)
         bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY')
 
