@@ -32,7 +32,6 @@ class TetrahedronMakerPanel(bpy.types.Panel):
     def draw(self, context):
         layout = self.layout
         scene = context.scene
-        box = layout.box().column(1) 
         box = layout.box()
         row = box.row()
         row.prop(scene, "sideLen", text="Length of Edge")
