@@ -1,20 +1,19 @@
-Tetra Set Dimensions (mm)								
-Face-edge-face inner angle = 70.5288° (109.4712° outer)						face section inner edge angle = 35.2644°		
-e (edge)	face h = (√3 / 2) * e	solid h = e * √(2/3)	8mm dia (5/16 inch)	7.9mm dia	face radius = (√3 / 3) * e	face section h = e / 12 * √6		
-edge_length_x	y	z	hole_depth	pin_length	face center from vertex	fs_z = solid origin on Z	part count	notes
-30	25.981	24.495	-	13	17.321	6.124	4	no hole, only pin
-35	30.311	28.577	15	17	20.207	7.144	4	
-40	34.641	32.66	19	21	23.094	8.165	4	
-45	38.971	36.742	23	25	25.981	9.186	4	
-50	43.301	40.825	27	29	28.868	10.206	4	
-55	47.631	44.907	31	29	31.754	11.227	4	
-60	51.962	48.99	31	29	34.641	12.247	4	
-65	56.292	53.072	31	29	37.528	13.268	4	
-70	60.622	57.155	31	29	40.415	14.289	4	
-75	64.952	61.237	31	29	43.301	15.309	4	
-80	69.282	65.32	31	29	46.188	16.33	4	
-85	73.612	69.402	31	29	49.075	17.351	4	
-90	77.942	73.485	31	29	51.962	18.371	4	
-95	82.272	77.567	31	29	54.848	19.392	4	
-100	86.603	81.65	31	-	57.735	20.412	1	hole in all for faces
-
+Tetra Set Dimensions (mm)									
+Face-edge-face inner angle = 70.5288° (109.4712° outer)							face section inner edge angle = 35.2644°		
+e (edge)	face h = (√3 / 2) * e	solid h = e * √(2/3)	8mm dia (5/16 inch)	7.9mm dia	8mm dia (5/16 inch)	face radius = (√3 / 3) * e	face section h = e / 12 * √6		
+edge_length_x	y	z	single_hole_depth	pin_length	two_hole_depth	face center from vertex	fs_z = solid origin on Z	part count	notes
+30	25.981	24.495	-	13		17.321	6.124	4	no hole, only pin
+35	30.311	28.577	15	17		20.207	7.144	4	
+40	34.641	32.66	19	21		23.094	8.165	4	
+45	38.971	36.742	23	25		25.981	9.186	4	
+50	43.301	40.825	27	29		28.868	10.206	4	
+55	47.631	44.907	31	29		31.754	11.227	4	
+60	51.962	48.99	31	29		34.641	12.247	4	
+65	56.292	53.072	31	29		37.528	13.268	4	
+70	60.622	57.155	31	29		40.415	14.289	4	
+75	64.952	61.237	31	29		43.301	15.309	4	
+80	69.282	65.32	31	29		46.188	16.33	4	
+85	73.612	69.402	31	29		49.075	17.351	4	
+90	77.942	73.485	31	29		51.962	18.371	4	
+95	82.272	77.567	31	29		54.848	19.392	4	
+100	86.603	81.65	-	-		57.735	20.412	1	hole in all for faces
