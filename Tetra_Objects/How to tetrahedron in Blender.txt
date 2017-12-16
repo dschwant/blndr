@@ -13,3 +13,6 @@ To make sure that you have a regular tetrahedron, you can check the lengths of t
 
 
 
+Aligning faces:
+https://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts/3D_interaction/Align_by_faces
+https://github.com/egtwobits/mesh-align-plus/wiki
