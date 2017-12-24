@@ -1,0 +1,38 @@
+{
+   "Components" : {
+      "FileCard" : {
+         "VOBID" : "String=E003000W",
+         "COOKIE" : "cookie=E003000W"
+      },
+      "CuePanel" : {
+         "NAME" : "cookie=E003000W",
+         "GROUPID" : "String=E003000W"
+      },
+      "MultiSourceContentPanel" : {
+         "View" : "int=3",
+         "TileSize" : "String=ISPLargeThumb",
+         "SplitterPos" : "int=101",
+         "size" : "int=0",
+         "ShowNavigator" : "bool=true",
+         "ReelGallery" : "int=0",
+         "LastTab" : "String=Project Contents",
+         "handle" : "String=GZ1Z0000",
+         "E00300SD" : "String=E00300SD",
+         "E003002Q" : "String=000000020000006363",
+         "E003000W" : "String=000000020000002121",
+         "BinHandle" : "String=GZ1Z0000|INVALID"
+      }
+   },
+   "Splits" : {
+      "Value" : 0.5,
+      "Right" : {
+         "Value" : 0.2956,
+         "Bottom" : {
+            "Value" : 0.5
+         }
+      }
+   },
+   "Misc" : {
+      "TileSize" : "ISPLargeThumb"
+   }
+}
