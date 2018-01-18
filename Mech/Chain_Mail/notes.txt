@@ -1,0 +1,16 @@
+Save final sim:
+https://blender.stackexchange.com/questions/8169/using-rigid-body-physics-to-set-objects-initial-positions
+1-Select all of the objects involved in the rigid body physics simulation
+2-Bake to Keyframes (in 3D View window, hit T, then select Physics > Bake to Keyframes)
+3-Still with all the objects selected, open the Graph Editor
+4-All the keyframes should be selected already. If not, hit A.
+5-Move keyframes back 300 frames (Gx-300).
+6-Erase all keyframes (Delete-Enter).
+--------
+Another way to solve this problem without the need to bake is to use Apply Visual Transform like this:
+
+1-Go to frame 300 and select all the mesh pieces
+2-CTRLA -> Visual Transform
+
+Applying Visual Transform will set the Location, Rotation and Scale of all the selected objects to what they are on frame 300.
+With this method, you don't need to bake the simulation and you also don't loose the rigid body settings.
