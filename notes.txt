@@ -33,3 +33,6 @@ Create macros:
 https://youtu.be/zMxkU350SaE
 http://www.pasteall.org/37168/python
 
+
+http://structuresynth.sourceforge.net/
+https://www.contextfreeart.org/
