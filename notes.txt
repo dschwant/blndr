@@ -28,3 +28,8 @@ Fix STL:
 https://service.netfabb.com/service.php
 
 https://blender.stackexchange.com/questions/7650/assign-a-shortcut-to-limit-selection-to-visible-toggle
+
+Create macros:
+https://youtu.be/zMxkU350SaE
+http://www.pasteall.org/37168/python
+
