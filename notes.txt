@@ -39,9 +39,3 @@ https://www.contextfreeart.org/
 
 seemless backdrop
 https://www.youtube.com/watch?v=Ycz1wQY_7KI
-
-3D PREP
---------
-- Ctrl-T triangulate
-- AWR - remove doubles
-- Ctrl-N fix normals
