@@ -1,3 +1,11 @@
+First install:
+https://renderedsmoothie.wordpress.com/2013/09/27/quick-tip-using-blender-on-a-laptop/
+https://blender.stackexchange.com/questions/40224/how-to-change-the-grids-length-values
+- Multimachine
+- Tetra tools
+- blendermada
+
+
 http://support.ponoko.com/hc/en-us/articles/220291008-How-to-export-a-STL-design-file-using-Blender-2-6-
 
 https://docs.blender.org/api/blender_python_api_current/info_tutorial_addon.html
