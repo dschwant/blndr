@@ -52,6 +52,14 @@ https://www.youtube.com/watch?v=Ycz1wQY_7KI
 Fibermesh 2.8
 https://blenderartists.org/t/fiber-mesh-resurrected-for-2-80/1141872
 
-remove doubles (w r)
-triangulate faces (ctrl-t)
-make normals consistant (ctrl-n)
+-------------------------------------------------------
+remove doubles (w r) - bpy.ops.mesh.remove_doubles()
+triangulate faces (ctrl-t) - bpy.ops.mesh.quads_convert_to_tris(quad_method='BEAUTY', ngon_method='BEAUTY')
+make normals consistant (ctrl-n) - bpy.ops.mesh.normals_make_consistent(inside=False)
+
+-------------------------------------------------------
+bpy.ops.mesh.dissolve_mode(use_verts=True)
+bpy.ops.mesh.select_all(action='TOGGLE')
+bpy.ops.mesh.quads_convert_to_tris(quad_method='BEAUTY', ngon_method='BEAUTY')
+bpy.ops.mesh.select_all(action='TOGGLE')
+
