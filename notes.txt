@@ -51,3 +51,7 @@ https://www.youtube.com/watch?v=Ycz1wQY_7KI
 
 Fibermesh 2.8
 https://blenderartists.org/t/fiber-mesh-resurrected-for-2-80/1141872
+
+remove doubles (w r)
+triangulate faces (ctrl-t)
+make normals consistant (ctrl-n)
