@@ -48,9 +48,38 @@ https://www.contextfreeart.org/
 seemless backdrop
 https://www.youtube.com/watch?v=Ycz1wQY_7KI
 
-
 Fibermesh 2.8
 https://blenderartists.org/t/fiber-mesh-resurrected-for-2-80/1141872
+
+
+LaserSlicer
+https://github.com/rgsouthall/laser_slicer
+
+TubeTool:
+https://github.com/zeffii/TubeTool
+
+MathMesh:
+https://github.com/rgsouthall/math_mesh
+
+MeshAlign:
+https://github.com/egtwobits/mesh_mesh_align_plus/releases
+https://github.com/sergeod9/Easy_Align_Addon
+
+Tissue - computational design:
+https://github.com/alessandro-zomparelli/tissue/tree/b280-dev
+
+ImportShapeKey:
+https://github.com/Shriinivas/shapekeyimport
+
+Rigify
+FishSim
+https://github.com/nerk987/FishSim
+https://www.youtube.com/watch?v=voLwD-tJaSQ
+
+Blenderkit
+https://www.blenderkit.com/get-blenderkit/
+
+
 
 -------------------------------------------------------
 remove doubles (w r) - bpy.ops.mesh.remove_doubles()
