@@ -51,7 +51,6 @@ https://www.youtube.com/watch?v=Ycz1wQY_7KI
 Fibermesh 2.8
 https://blenderartists.org/t/fiber-mesh-resurrected-for-2-80/1141872
 
-
 LaserSlicer
 https://github.com/rgsouthall/laser_slicer
 
@@ -79,6 +78,16 @@ https://www.youtube.com/watch?v=voLwD-tJaSQ
 Blenderkit
 https://www.blenderkit.com/get-blenderkit/
 
+Animation Nodes:
+https://github.com/JacquesLucke/animation_nodes/releases/tag/v2.0
+https://youtu.be/_A6IzKbxcG4
+
+Paper Models
+https://www.instructables.com/id/Papercraft-With-Blender/
+
+Celtic Knot
+https://blenderartists.org/t/addon-celtic-knot-generator/596902/56
+https://github.com/BorisTheBrave/celtic-knot
 
 
 -------------------------------------------------------
